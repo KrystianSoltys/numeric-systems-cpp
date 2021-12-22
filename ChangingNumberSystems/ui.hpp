@@ -1,26 +1,30 @@
 #ifndef UI_HPP
 #define UI_HPP
 
+#include "options.hpp"
+#include "calculator.hpp"
 #include <iostream>
 #include <string>
 #include <exception>
+#include <Windows.h>
+
+
 typedef unsigned int uint;
 
-static uint MAX_NUMERIC_SYS = 16;
-
+inline void cls();
 
 namespace ui
 {
 	static std::string VERSION = "v0.1";
-	void Headline();
-	uint MainMenu();
-	uint SelectNumeric();
+
+	void Headline() noexcept;
+	uint MainMenu();			//throws out_of_range
+	uint SelectNumeric();		//throws out_of_range
 	uint FilePart();
-	uint ManualPart();
+	std::string ManualPart();
 }
 
 
-class Numeric_exc : public std::ex
 
 #endif // !UI_HPP
 

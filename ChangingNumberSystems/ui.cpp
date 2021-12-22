@@ -46,7 +46,7 @@ uint ui::FilePart()
 	return uint();
 }
 
-void ui::ManualPart()
+std::string ui::ManualPart()
 {
 	unsigned long long srcNum, srcBase, destBase;
 	cout << "Enter number: ";
@@ -61,5 +61,8 @@ void ui::ManualPart()
 
 	cout << "To base:\n";
 	destBase = SelectNumeric();
+	
+	Calc obl(srcBase, destBase, srcNum);
+
 
 }

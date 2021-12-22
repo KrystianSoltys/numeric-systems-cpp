@@ -1,15 +1,24 @@
 #ifndef CALCULATOR_HPP
 #define	CALCULATOR_HPP
 
+typedef unsigned long long ull;
 typedef unsigned int uint;
 
-class Number
+class Calc
 {
-	Number(uint sb, uint db, uint sn);
+public:
+	Calc(uint sb, uint db, ull sn);
 
+private:
+	void Convert();
+
+private:
 	uint srcBase{};
 	uint destBase{};
-	uint srcNum{};	
+	ull srcNum{};
+
+	ull result{};
+
 };
 
 

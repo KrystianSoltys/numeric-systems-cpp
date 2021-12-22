@@ -151,10 +151,12 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="calculator.hpp" />
     <ClInclude Include="options.hpp" />
     <ClInclude Include="ui.hpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="calculator.cpp" />
     <ClCompile Include="ChangingNumberSystems.cpp" />
     <ClCompile Include="options.cpp" />
     <ClCompile Include="ui.cpp" />
