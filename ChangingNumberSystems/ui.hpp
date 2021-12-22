@@ -3,7 +3,11 @@
 
 #include <iostream>
 #include <string>
+#include <exception>
 typedef unsigned int uint;
+
+static uint MAX_NUMERIC_SYS = 16;
+
 
 namespace ui
 {
@@ -14,6 +18,9 @@ namespace ui
 	uint FilePart();
 	uint ManualPart();
 }
+
+
+class Numeric_exc : public std::ex
 
 #endif // !UI_HPP
 
