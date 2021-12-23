@@ -1,6 +1,6 @@
 #include "calculator.hpp"
 
-Calc::Calc(uint sb, uint db, ull sn):
+Calc::Calc(uint sb, uint db, std::string& sn):
 	srcBase(sb), destBase(db), srcNum(sn)
 {
 	Convert();
@@ -8,5 +8,5 @@ Calc::Calc(uint sb, uint db, ull sn):
 
 void Calc::Convert()
 {
-
+	//whole logic here
 }

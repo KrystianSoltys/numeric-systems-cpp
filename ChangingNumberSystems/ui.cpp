@@ -2,11 +2,12 @@
 
 using std::cout; using std::cin; using std::endl;
 
-void cls()
+inline void cls()
 {
 	system("cls");
 	ui::Headline();
 }
+
 
 void ui::Headline()
 {
@@ -41,14 +42,70 @@ uint ui::SelectNumeric()
 	return n;
 }
 
-uint ui::FilePart()
+void ui::FilePart()
 {
-	return uint();
+	std::string path;
+	cout << "Provide file path: ";
+	cin >> path;
+
+	std::fstream file;
+	file.open(path, std::ios::in);
+
+	if (!file.is_open())
+		throw BadFile("File can not be opened!");
+
+	uint srcBase, destBase;
+	std::vector<std::string> nums; //string due to possible letters in nums
+	std::string x;
+
+	while (file >> x) //reading from file
+		nums.push_back(x);
+
+	file.close();
+
+
+	if (nums.size() < 3)
+	{
+		file.close();
+		throw BadDataInFile("To few lines in file!");
+	}
+	
+	srcBase = std::stoi(nums.at(nums.size() - 2));
+	destBase = std::stoi(nums.at(nums.size() - 1));
+
+	if (srcBase < 2 || srcBase > MAX_NUMERIC_SYS ||
+		destBase < 2 || destBase > MAX_NUMERIC_SYS)
+	{
+		throw std::out_of_range("Provided numeric system in file out of range!");
+	}
+
+	nums.resize(nums.size() - 2);
+
+	std::vector<Calc> calculations;
+
+	for (auto& i : nums)
+		calculations.push_back(Calc(srcBase, destBase, i));
+	
+	file.open(path, std::ios::app);
+	if (!file.is_open())
+	{
+		throw BadFile("File can not be opened during writing data!");
+	}
+
+	file << "\n";
+	for (auto& i : calculations) //writing to file
+	{
+		file << i.Result() << endl;
+	}
+
+	file.close();
+
 }
 
-std::string ui::ManualPart()
+void ui::ManualPart()
 {
-	unsigned long long srcNum, srcBase, destBase;
+	uint srcBase, destBase;
+	std::string srcNum;
 	cout << "Enter number: ";
 	cin >> srcNum;
 	
