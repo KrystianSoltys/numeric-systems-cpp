@@ -9,15 +9,20 @@ inline void cls()
 }
 
 
-void ui::Headline()
+void ui::Headline() noexcept
 {
 	cout << "--------- Number Systems Calculator " << VERSION << " ---------\n\n";
 }
 
-uint ui::MainMenu()
+uint ui::MainMenu(std::string& msg)
 {
 	ui::Headline();
-	
+
+    if(msg!="")
+    {
+        cout << msg << endl;
+        cout << "Check log.txt file for more information." << endl << endl;
+    }
 	cout << "[1] Manual calculator.\n";
 	cout << "[2] File source calculator.\n";
 	cout << "[3] Options\n";
@@ -27,7 +32,7 @@ uint ui::MainMenu()
 	uint n;
 	cin >> n;
 
-	if (n > 4) throw std::out_of_range("Provided modeule number does not exists!");
+	if (n > 4) throw std::out_of_range("Provided module number does not exists!");
 
 	return n;
 }
@@ -69,7 +74,7 @@ void ui::FilePart()
 		file.close();
 		throw BadDataInFile("To few lines in file!");
 	}
-	
+
 	srcBase = std::stoi(nums.at(nums.size() - 2));
 	destBase = std::stoi(nums.at(nums.size() - 1));
 
@@ -85,7 +90,7 @@ void ui::FilePart()
 
 	for (auto& i : nums)
 		calculations.push_back(Calc(srcBase, destBase, i));
-	
+
 	file.open(path, std::ios::app);
 	if (!file.is_open())
 	{
@@ -108,7 +113,7 @@ void ui::ManualPart()
 	std::string srcNum;
 	cout << "Enter number: ";
 	cin >> srcNum;
-	
+
 	cls();
 
 	cout << "From base:\n";
@@ -118,8 +123,20 @@ void ui::ManualPart()
 
 	cout << "To base:\n";
 	destBase = SelectNumeric();
-	
+
 	Calc obl(srcBase, destBase, srcNum);
 
+    cls();
 
+    cout << "Source: " << srcNum << " (" << srcBase << ")\n\n";
+    cout << "Result: " << obl.Result() << " (" << destBase << ")\n\n";
+    cin.get();
+}
+
+void ui::About() noexcept
+{
+    cls();
+    cout << "Created by Intelek\n";
+    cout << "README file available on GitHub page" << endl;
+    cin.get();
 }

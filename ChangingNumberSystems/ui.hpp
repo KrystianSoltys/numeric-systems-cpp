@@ -19,10 +19,10 @@ namespace ui
 	static std::string VERSION = "v0.1";
 
 	void Headline() noexcept;
-	uint MainMenu();			//throws out_of_range
-	uint SelectNumeric();		//throws out_of_range
-	void FilePart();			//throws 
-	void ManualPart();			//throws
+	uint MainMenu(std::string& msg);    //throws out_of_range
+	uint SelectNumeric();		        //throws out_of_range
+	void FilePart();			        //throws multiple exc
+	void ManualPart();			        //throws multiple exc
 	void About() noexcept;
 }
 
@@ -31,22 +31,28 @@ class BadFile : public std::exception
 {
 public:
 	BadFile(const char* message = "Problem with file occured!") :
-		std::exception(message) {}
-	virtual const char* what() const noexcept 
+        msg_(message) {}
+	virtual const char* what() const noexcept
 	{
-		return std::exception::what();
+		return msg_.c_str();
 	}
+
+protected:
+    std::string msg_;
 };
 
 class BadDataInFile : public std::exception
 {
 public:
-	BadDataInFile(const char* message = "Problem with file occured!") :
-		std::exception(message) {}
+	BadDataInFile(char* message = "Problem with file occured!") :
+		msg_(message) {}
 	virtual const char* what() const noexcept
 	{
-		return std::exception::what();
+		return msg_.c_str();
 	}
+
+protected:
+    std::string msg_;
 };
 #endif // !UI_HPP
 
