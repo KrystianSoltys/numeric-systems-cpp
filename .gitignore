@@ -263,3 +263,6 @@ __pycache__/
 # Visual Studio Files
 *.sln
 *.vcxproj
+
+# CodeBlocks Files
+*.cbp
