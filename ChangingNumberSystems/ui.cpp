@@ -16,7 +16,7 @@ void ui::Headline() noexcept
 
 uint ui::MainMenu(std::string& msg)
 {
-	ui::Headline();
+	cls();
 
     if(msg!="")
     {
@@ -33,7 +33,7 @@ uint ui::MainMenu(std::string& msg)
 	cin >> n;
 
 	if (n > 4) throw std::out_of_range("Provided module number does not exists!");
-
+	cls();
 	return n;
 }
 
@@ -130,7 +130,7 @@ void ui::ManualPart()
 
     cout << "Source: " << srcNum << " (" << srcBase << ")\n\n";
     cout << "Result: " << obl.Result() << " (" << destBase << ")\n\n";
-    cin.get();
+	system("pause");
 }
 
 void ui::About() noexcept
@@ -138,5 +138,5 @@ void ui::About() noexcept
     cls();
     cout << "Created by Intelek\n";
     cout << "README file available on GitHub page" << endl;
-    cin.get();
+	system("pause");
 }

@@ -3,62 +3,70 @@
 
 int main()
 {
-    std::string msg;
+    std::string msg = "";
     while(true)
     {
-        msg = "";
         try
         {
             switch(ui::MainMenu(msg))
             {
             case 1:
-                {
-                    ui::ManualPart()
-                    break;
-                }
+            {
+				ui::ManualPart();
+                break;
+            }
             case 2:
-                {
-                    ui::FilePart()
-                    break;
-                }
+            {
+				ui::FilePart();
+                break;
+            }
             case 3:
-                {
-                    //options here
-                    break;
-                }
+            {
+                //options here
+                break;
+            }
             case 4:
-                {
-                    ui::About();
-                    break;
-                }
+            {
+                ui::About();
+                break;
+            }
             case 0:
-                {
-                    cls();
-                    std::cout << "See you again!\n";
-                    std::exit(EXIT_SUCCESS);
-                }
+            {
+                cls();
+                std::cout << "See you again!\n";
+                std::exit(EXIT_SUCCESS);
+            }
+			default:
+			{
+				msg = "Incorrect module number.";
+			}
             }
         }
         catch(BadFile& exc)
         {
-            msg = "Problem with file occurred.";
+			msg = exc.what();
             continue;
         }
         catch(std::out_of_range& exc)
         {
-            msg = "Provided base number out of range";
+			msg = exc.what();
             continue;
         }
         catch(BadDataInFile& exc)
         {
-            msg = "Data provided in file is not valid";
+			msg = exc.what();
             continue;
         }
+		catch (CalculationExc& exc)
+		{
+			msg = exc.what();
+			continue;
+		}
         catch(...)
         {
             break;
         }
 
     }
-	return EXIT_FAILURE;
+	std::exit(EXIT_FAILURE);
 }

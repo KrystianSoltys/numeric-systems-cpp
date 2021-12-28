@@ -3,6 +3,7 @@
 
 #include <string>
 #include <cmath>
+#include <map>
 
 /*
 Example of source.txt file to calc:
@@ -16,12 +17,13 @@ Example of source.txt file to calc:
 //
 */
 
-
-
+typedef unsigned long long ull;
 typedef unsigned int uint;
 
-
 static uint MAX_NUMERIC_SYS = 16;
+
+ull xPow(uint a, uint b = 2);
+char IntToChar(uint x);
 
 class Calc
 {
@@ -41,7 +43,19 @@ private:
 
 };
 
+class CalculationExc : public std::exception
+{
+public:
+	CalculationExc(const char* message = "Cannot be calculated!") :
+		msg_(message) {}
+	virtual const char* what() const noexcept
+	{
+		return msg_.c_str();
+	}
 
+protected:
+	std::string msg_;
+};
 
 
 #endif // !CALCULATOR_HPP

@@ -11,7 +11,6 @@ It's an example;To jest przyklad;Esto es un ejemplo
 */
 
 
-
 #include <string>
 #include <fstream>
 #include <vector>
