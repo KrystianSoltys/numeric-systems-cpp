@@ -21,7 +21,9 @@ uint ui::MainMenu(std::string& msg)
     if(msg!="")
     {
         cout << msg << endl;
-        cout << "Check log.txt file for more information." << endl << endl;
+        //cout << "Check log.txt file for more information." << endl << endl;
+		cout << endl;
+		msg = "";
     }
 	cout << "[1] Manual calculator.\n";
 	cout << "[2] File source calculator.\n";
@@ -97,7 +99,7 @@ void ui::FilePart()
 		throw BadFile("File can not be opened during writing data!");
 	}
 
-	file << "\n";
+	file << "\n\n";
 	for (auto& i : calculations) //writing to file
 	{
 		file << i.Result() << endl;

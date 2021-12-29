@@ -16,7 +16,7 @@ inline bool IntsOnlyInStr(const std::string&);
 
 namespace ui
 {
-	static std::string VERSION = "in Dev";
+	static std::string VERSION = "v1.0";
 
 	void Headline() noexcept;
 	uint MainMenu(std::string& msg);    //throws out_of_range

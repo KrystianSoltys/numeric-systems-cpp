@@ -22,7 +22,7 @@ int main()
             }
             case 3:
             {
-                //options here
+				msg = "No options yet.";
                 break;
             }
             case 4:

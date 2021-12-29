@@ -19,15 +19,15 @@ It's an example;To jest przyklad;Esto es un ejemplo
 class Options
 {
 public:
-	Options();
+	Options(const std::string& fn);
 	virtual ~Options() {};
 
 	const std::string& Read() const;
 
 private:
-	std::string filename;
-	std::vector<std::vector<std::string>> lang_text;
-	std::vector<std::string> lang_versions;
+	std::string filename {};
+	std::vector<std::vector<std::string>> lang_text {};
+	std::vector<std::string> lang_versions {};
 
 };
 
