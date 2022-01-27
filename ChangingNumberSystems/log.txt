@@ -1,0 +1,28 @@
+[21.01.2022 | 18:52:36]   Note:        Program opened and ready to work.
+[21.01.2022 | 18:52:39]   Note:        Entered Manual Module
+[21.01.2022 | 18:52:42]   Exception:   Provided numeric system out of range!
+[21.01.2022 | 18:52:44]   Note:        Entered Manual Module
+[21.01.2022 | 18:52:55]   Note:        Program closed propertly.
+[26.01.2022 | 18:27:12]   Note:        Program opened and ready to work.
+[26.01.2022 | 18:27:14]   Note:        Entered Manual Module
+[26.01.2022 | 18:27:59]   Note:        Entered Options Module
+[26.01.2022 | 18:28:01]   Note:        Entered About Module
+[26.01.2022 | 18:28:07]   Note:        Program closed propertly.
+[26.01.2022 | 18:29:51]   Note:        Program opened and ready to work.
+[26.01.2022 | 18:29:53]   Note:        Program closed propertly.
+[26.01.2022 | 18:34:31]   Note:        Program opened and ready to work.
+[26.01.2022 | 18:34:33]   Note:        Entered Manual Module
+[26.01.2022 | 18:34:35]   Exception:   Provided numeric system out of range!
+[26.01.2022 | 18:34:36]   Note:        Program closed propertly.
+[26.01.2022 | 18:35:55]   Note:        Program opened and ready to work.
+[26.01.2022 | 18:36:06]   Note:        Program opened and ready to work.
+[26.01.2022 | 18:52:14]   Note:        Program opened and ready to work.
+[26.01.2022 | 18:52:15]   Note:        Entered Manual Module
+[26.01.2022 | 18:52:24]   Note:        Entered Manual Module
+[26.01.2022 | 18:52:30]   Note:        Program closed propertly.
+[26.01.2022 | 18:53:47]   Note:        Program opened and ready to work.
+[26.01.2022 | 18:53:56]   Note:        Entered Manual Module
+[26.01.2022 | 18:54:04]   Note:        Program closed propertly.
+[26.01.2022 | 18:54:26]   Note:        Program opened and ready to work.
+[26.01.2022 | 18:54:27]   Note:        Entered Manual Module
+[26.01.2022 | 18:54:33]   Note:        Program closed propertly.

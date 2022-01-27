@@ -6,7 +6,8 @@ int main()
 {
 	Log log(DEFAULT_LOG_FILENAME);
     std::string msg = "";
-    while(true)
+    bool end = false;
+    while(!end)
     {
         try
         {
@@ -82,11 +83,13 @@ int main()
 		catch (std::exception& exc)
 		{
 			log.AddToLog(exc.what(), true);
+            end = true;
 			break;
 		}
         catch(...)
         {
 			log.AddToLog("Unknown exception has been caught, please contact devs", true);
+            end = true;
             break;
         }
 

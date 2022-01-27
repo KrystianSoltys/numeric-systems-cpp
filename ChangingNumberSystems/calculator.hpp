@@ -3,7 +3,6 @@
 
 #include <string>
 #include <cmath>
-#include <map>
 
 /*
 Example of source.txt file to calc:
@@ -17,8 +16,8 @@ Example of source.txt file to calc:
 //
 */
 
-typedef unsigned long long ull;
-typedef unsigned int uint;
+using ull = unsigned long long;
+using uint = unsigned int;
 
 static uint MAX_NUMERIC_SYS = 16;
 

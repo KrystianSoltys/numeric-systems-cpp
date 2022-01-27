@@ -24,7 +24,7 @@ Calc::Calc(uint sb, uint db, std::string& sn):
 	srcBase(sb), destBase(db), srcNum(sn)
 {
 	for (char& i : srcNum) //number string to upper
-		toupper(i);
+		i = toupper(i);
 
 	Convert();
 }

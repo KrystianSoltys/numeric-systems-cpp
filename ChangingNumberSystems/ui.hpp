@@ -6,12 +6,13 @@
 #include <iostream>
 #include <string>
 #include <exception>
-#include <Windows.h>
 #include <fstream>
 #include <algorithm>
 
 
-inline void cls();
+
+inline void cls() noexcept;
+inline void Wait(const std::string& text = "Press any key to continue..") noexcept;
 inline bool IntsOnlyInStr(const std::string&);
 
 namespace ui

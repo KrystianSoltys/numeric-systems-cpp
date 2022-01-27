@@ -2,12 +2,32 @@
 
 using std::cout; using std::cin; using std::endl;
 
-inline void cls()
+#ifdef _WIN32
+inline void cls() noexcept
 {
 	system("cls");
 	ui::Headline();
 }
+inline void Wait(const std::string& text) noexcept
+{
+	cout << text << endl;
+	cin.ignore();
+	cin.get();
+}
 
+#elif unix
+inline void cls() noexcept
+{
+	system("clear");
+	ui::Headline();
+}
+inline void Wait(const std::string& text) noexcept
+{
+	cout << text << endl;
+	cin.ignore();
+	cin.get();
+}
+#endif
 
 void ui::Headline() noexcept
 {
@@ -132,7 +152,7 @@ void ui::ManualPart()
 
     cout << "Source: " << srcNum << " (" << srcBase << ")\n\n";
     cout << "Result: " << obl.Result() << " (" << destBase << ")\n\n";
-	system("pause");
+	Wait();
 }
 
 void ui::About() noexcept
@@ -140,5 +160,5 @@ void ui::About() noexcept
     cls();
     cout << "Created by Intelek\n";
     cout << "README file available on GitHub page" << endl;
-	system("pause");
+	Wait();
 }
