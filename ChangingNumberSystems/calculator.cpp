@@ -33,7 +33,7 @@ void Calc::Convert()
 {
 	ull sum{ 0 };
 	char ch;
-	uint num{ 1 }; //avoiding UB
+	ull num{ 1 }; //avoiding UB
 
 	std::reverse(srcNum.begin(), srcNum.end());
 

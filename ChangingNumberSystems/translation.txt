@@ -1,0 +1,3 @@
+EN;PL;ES
+Hello;Czesc;Hola
+It's an example;To jest przyklad;Esto es un ejemplo

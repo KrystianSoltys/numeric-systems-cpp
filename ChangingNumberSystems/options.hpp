@@ -14,20 +14,25 @@ It's an example;To jest przyklad;Esto es un ejemplo
 #include <string>
 #include <fstream>
 #include <vector>
+#include <sstream>
+
+const std::string DEFAULT_TR_FILENAME = "translation.txt";
 
 
-class Options
+class Translation
 {
 public:
-	Options(const std::string& fn);
-	virtual ~Options() {};
+	Translation(const std::string& = DEFAULT_TR_FILENAME);
+	virtual ~Translation() {};
 
 	const std::string& Read() const;
 
 private:
 	std::string filename {};
-	std::vector<std::vector<std::string>> lang_text {};
+	std::vector<std::vector<std::string>> translations {};
 	std::vector<std::string> lang_versions {};
+
+	bool readFile();
 
 };
 

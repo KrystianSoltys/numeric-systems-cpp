@@ -1,10 +1,12 @@
 ﻿#include "ui.hpp"
 #include "log.hpp"
+#include "options.hpp"
 #include <iostream>
 
 int main()
 {
 	Log log(DEFAULT_LOG_FILENAME);
+    Translation tr(DEFAULT_TR_FILENAME);
     std::string msg = "";
     bool end = false;
     while(!end)
