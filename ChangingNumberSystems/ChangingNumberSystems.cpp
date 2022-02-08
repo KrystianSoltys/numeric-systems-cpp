@@ -6,7 +6,7 @@
 int main()
 {
 	Log log(DEFAULT_LOG_FILENAME);
-    Translation tr(DEFAULT_TR_FILENAME);
+    Options opt(DEFAULT_OPT_FILENAME, DEFAULT_TR_FILENAME);
     std::string msg = "";
     bool end = false;
     while(!end)
