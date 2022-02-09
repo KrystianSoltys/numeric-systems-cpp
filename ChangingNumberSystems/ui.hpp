@@ -8,16 +8,22 @@
 #include <exception>
 #include <fstream>
 #include <algorithm>
+#include <functional>
 
+class UI;
 
-
-inline void cls() noexcept;
-inline void Wait(const std::string& text = "Press any key to continue..") noexcept;
 inline bool IntsOnlyInStr(const std::string&);
 
-namespace ui
+static std::string VERSION = "v1.0";
+
+class UI
 {
-	static std::string VERSION = "v1.0";
+public:
+
+	UI(const Options&);
+
+	inline void cls() noexcept;
+	inline void Wait() noexcept;
 
 	void Headline() noexcept;
 	uint MainMenu(std::string& msg);    //throws out_of_range
@@ -25,7 +31,12 @@ namespace ui
 	void FilePart();			        //throws multiple exc
 	void ManualPart();			        //throws multiple exc
 	void About() noexcept;
-}
+	
+	const std::string& GetString(uint x) const noexcept;
+
+private:
+	std::shared_ptr<Options> optObj;
+};
 
 //exception class for file problems
 class BadFile : public std::exception

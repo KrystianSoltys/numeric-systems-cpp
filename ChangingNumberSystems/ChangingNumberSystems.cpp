@@ -7,24 +7,25 @@ int main()
 {
 	Log log(DEFAULT_LOG_FILENAME);
     Options opt(DEFAULT_OPT_FILENAME, DEFAULT_TR_FILENAME);
+    UI ui(opt);
     std::string msg = "";
     bool end = false;
     while(!end)
     {
         try
         {
-            switch(ui::MainMenu(msg))
+            switch(ui.MainMenu(msg))
             {
             case 1:
             {
 				log.AddToLog("Entered Manual Module");
-				ui::ManualPart();
+				ui.ManualPart();
                 break;
             }
             case 2:
             {
 				log.AddToLog("Entered File Module");
-				ui::FilePart();
+				ui.FilePart();
                 break;
             }
             case 3:
@@ -36,7 +37,7 @@ int main()
             case 4:
             {
 				log.AddToLog("Entered About Module");
-                ui::About();
+                ui.About();
                 break;
             }
             case 0:

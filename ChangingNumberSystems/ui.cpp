@@ -1,43 +1,47 @@
-#include "ui.hpp"
+#include "UI.hpp"
 
 using std::cout; using std::cin; using std::endl;
 
 #ifdef _WIN32
-inline void cls() noexcept
+inline void UI::cls() noexcept
 {
 	system("cls");
-	ui::Headline();
+	Headline();
 }
-inline void Wait(const std::string& text) noexcept
+inline void UI::Wait() noexcept
 {
-	cout << text << endl;
+	cout << GetString(2) << endl;
 	cin.ignore();
 	cin.get();
 }
 
 #elif unix
-inline void cls() noexcept
+inline void UI::cls() noexcept
 {
 	system("clear");
-	ui::Headline();
+	Headline();
 }
-inline void Wait(const std::string& text) noexcept
+inline void UI::Wait(const std::string& text) noexcept
 {
-	cout << text << endl;
+	cout << GetString(2) << endl;
 	cin.ignore();
 	cin.get();
 }
 #endif
 
-void ui::Headline() noexcept
+UI::UI(const Options& opt)
 {
-	cout << "--------- Number Systems Calculator " << VERSION << " ---------\n\n";
+	optObj = std::make_shared<Options>(opt);
 }
 
-uint ui::MainMenu(std::string& msg)
+void UI::Headline() noexcept
+{
+	cout << "--------- " << GetString(3) << " " << VERSION << " -------- - \n\n";
+}
+
+uint UI::MainMenu(std::string& msg)
 {
 	cls();
-
     if(msg!="")
     {
         cout << msg << endl;
@@ -45,11 +49,11 @@ uint ui::MainMenu(std::string& msg)
 		cout << endl;
 		msg = "";
     }
-	cout << "[1] Manual calculator.\n";
-	cout << "[2] File source calculator.\n";
-	cout << "[3] Options\n";
-	cout << "[4] About&Help\n\n";
-	cout << "[0] Exit\n\n";
+	cout << "[1] " << GetString(4) << ".\n";
+	cout << "[2] " << GetString(5) << ".\n";
+	cout << "[3] " << GetString(6) << "\n";
+	cout << "[4] " << GetString(7) << "\n\n";
+	cout << "[0] " << GetString(8) << "\n\n";
 	cout << "Choose module: ";
 	uint n;
 	cin >> n;
@@ -59,7 +63,7 @@ uint ui::MainMenu(std::string& msg)
 	return n;
 }
 
-uint ui::SelectNumeric()
+uint UI::SelectNumeric()
 {
 	uint n;
 	cout << "Provide numeric system (2 - " << MAX_NUMERIC_SYS << "): ";
@@ -69,7 +73,7 @@ uint ui::SelectNumeric()
 	return n;
 }
 
-void ui::FilePart()
+void UI::FilePart()
 {
 	std::string path;
 	cout << "Provide file path: ";
@@ -129,7 +133,7 @@ void ui::FilePart()
 
 }
 
-void ui::ManualPart()
+void UI::ManualPart()
 {
 	uint srcBase, destBase;
 	std::string srcNum;
@@ -155,10 +159,15 @@ void ui::ManualPart()
 	Wait();
 }
 
-void ui::About() noexcept
+void UI::About() noexcept
 {
     cls();
     cout << "Created by Intelek\n";
     cout << "README file available on GitHub page" << endl;
 	Wait();
+}
+
+const std::string& UI::GetString(uint x) const noexcept
+{
+	return optObj->GetTranslation(x);
 }

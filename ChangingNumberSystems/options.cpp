@@ -19,11 +19,11 @@ bool Options::parseFile()
 		std::getline(is, option, ':');
 		std::getline(is, value);
 
-		//vector pushing here in future
-		if (option == "LANG") language = value;
+		mapSettings.insert(PairStr(option, value));
 	}
 
 	file.close();
+	return true;
 }
 
 Options::Options(const std::string& optFN, const std::string& trFN)
@@ -31,6 +31,15 @@ Options::Options(const std::string& optFN, const std::string& trFN)
 {
 	translationObj = Translation(trFN);
 	parseFile();
+
+	uint i = 0;
+	while (mapSettings.at("LANG") != translationObj.lang_versions[i]
+			&& i < translationObj.lang_versions.size())
+		i++;
+
+	if(translationObj.lang_versions[i] != mapSettings.at("LANG")) i=0;
+
+	languageInt = i;
 }
 
 const std::vector<std::string>& Options::GetLangVersions() const noexcept
@@ -38,16 +47,10 @@ const std::vector<std::string>& Options::GetLangVersions() const noexcept
 	return translationObj.lang_versions;
 }
 
-const std::string& Options::GetTranslation(uint line, uint lang) const
+const std::string& Options::GetTranslation(uint line) const
 {
-	return translationObj.GetTranslation(line, lang);
+	return translationObj.GetTranslation(line, languageInt);
 }
-
-void Options::SetLanguage(const std::string& str) noexcept
-{
-	if (str.size() == 2) language = str;
-}
-
 
 Translation::Translation(const std::string& fn) : filename(fn)
 {

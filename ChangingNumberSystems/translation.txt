@@ -1,3 +1,18 @@
-EN;PL;ES
-Hello;Czesc;Hola
-It's an example;To jest przyklad;Esto es un ejemplo
+EN;PL
+Error;Blad
+Press any key to continue;Nacisnij dowolny klawisz aby kontynuowac
+Numeric Systems Calculator;Kalkulator Systemow Liczbowych
+Manual calculator;Tryb manualny
+File source calculator;Tryb odczytu z pliku
+Options;Opcje
+About&Help;Autor i pomoc
+Exit;Wyjscie
+Provide numeric system;Podaj system liczbowy
+Provide file path;Podaj sciezke do pliku
+Enter number;Podaj numer
+From base;Z systemu
+To base;Do systemu
+Source;Zrodlo
+Result;Wynik
+Created by;Autor
+README file avaivle on GitHub page;Plik README dostepny na stronie GitHub projektu
