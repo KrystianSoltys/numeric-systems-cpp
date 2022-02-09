@@ -7,6 +7,7 @@ File source calculator;Tryb odczytu z pliku
 Options;Opcje
 About&Help;Autor i pomoc
 Exit;Wyjscie
+Choose module;Wybierz modul
 Provide numeric system;Podaj system liczbowy
 Provide file path;Podaj sciezke do pliku
 Enter number;Podaj numer
@@ -16,3 +17,10 @@ Source;Zrodlo
 Result;Wynik
 Created by;Autor
 README file avaivle on GitHub page;Plik README dostepny na stronie GitHub projektu
+See you again!;Do zobaczenia!
+Incorrect module number.;Niepoprawny numer modulu.
+Provided numeric system out of range!;Podany system liczbowy jest poza zakresem!
+Provided module number does not exists!;Podany modul nie istnieje!
+File can not be opened!;Nie mozna otworzyc pliku!
+To few lines in file!;Plik jest zbyt krotki!
+File can not be opened during writing data!;Plik nie moze zostac otwarty do zapisu danych!

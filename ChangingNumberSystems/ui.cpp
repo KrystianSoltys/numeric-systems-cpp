@@ -10,7 +10,7 @@ inline void UI::cls() noexcept
 }
 inline void UI::Wait() noexcept
 {
-	cout << GetString(2) << endl;
+	cout << "\n" << GetString(1) << ".." << endl;
 	cin.ignore();
 	cin.get();
 }
@@ -23,7 +23,7 @@ inline void UI::cls() noexcept
 }
 inline void UI::Wait(const std::string& text) noexcept
 {
-	cout << GetString(2) << endl;
+	cout << GetString(1) << endl;
 	cin.ignore();
 	cin.get();
 }
@@ -36,29 +36,29 @@ UI::UI(const Options& opt)
 
 void UI::Headline() noexcept
 {
-	cout << "--------- " << GetString(3) << " " << VERSION << " -------- - \n\n";
+	cout << "--------- " << GetString(2) << " " << VERSION << " ---------\n\n";
 }
 
 uint UI::MainMenu(std::string& msg)
 {
 	cls();
-    if(msg!="")
-    {
-        cout << msg << endl;
-        //cout << "Check log.txt file for more information." << endl << endl;
+	if(msg!="")
+	{
+		cout << msg << endl;
+		//cout << "Check log.txt file for more information." << endl << endl;
 		cout << endl;
 		msg = "";
-    }
-	cout << "[1] " << GetString(4) << ".\n";
-	cout << "[2] " << GetString(5) << ".\n";
-	cout << "[3] " << GetString(6) << "\n";
-	cout << "[4] " << GetString(7) << "\n\n";
-	cout << "[0] " << GetString(8) << "\n\n";
-	cout << "Choose module: ";
+	}
+	cout << "[1] " << GetString(3) << ".\n";
+	cout << "[2] " << GetString(4) << ".\n";
+	cout << "[3] " << GetString(5) << "\n";
+	cout << "[4] " << GetString(6) << "\n\n";
+	cout << "[0] " << GetString(7) << "\n\n";
+	cout << GetString(8) << ": ";
 	uint n;
 	cin >> n;
 
-	if (n > 4) throw std::out_of_range("Provided module number does not exists!");
+	if (n > 4) throw std::out_of_range(GetString(21));
 	cls();
 	return n;
 }
@@ -66,9 +66,9 @@ uint UI::MainMenu(std::string& msg)
 uint UI::SelectNumeric()
 {
 	uint n;
-	cout << "Provide numeric system (2 - " << MAX_NUMERIC_SYS << "): ";
+	cout  << GetString(9) << " (2 - " << MAX_NUMERIC_SYS << "): ";
 	cin >> n;
-	if (n < 2 || n > MAX_NUMERIC_SYS) throw std::out_of_range("Provided numeric system out of range!");
+	if (n < 2 || n > MAX_NUMERIC_SYS) throw std::out_of_range(GetString(20));
 
 	return n;
 }
@@ -76,14 +76,14 @@ uint UI::SelectNumeric()
 void UI::FilePart()
 {
 	std::string path;
-	cout << "Provide file path: ";
+	cout << GetString(10) << ": ";
 	cin >> path;
 
 	std::fstream file;
 	file.open(path, std::ios::in);
 
 	if (!file.is_open())
-		throw BadFile("File can not be opened!");
+		throw BadFile(GetString(22).c_str());
 
 	uint srcBase, destBase;
 	std::vector<std::string> nums; //string due to possible letters in nums
@@ -98,7 +98,7 @@ void UI::FilePart()
 	if (nums.size() < 3)
 	{
 		file.close();
-		throw BadDataInFile("To few lines in file!");
+		throw BadDataInFile(GetString(23).c_str());
 	}
 
 	srcBase = std::stoi(nums.at(nums.size() - 2));
@@ -107,7 +107,7 @@ void UI::FilePart()
 	if (srcBase < 2 || srcBase > MAX_NUMERIC_SYS ||
 		destBase < 2 || destBase > MAX_NUMERIC_SYS)
 	{
-		throw std::out_of_range("Provided numeric system in file out of range!");
+		throw std::out_of_range(GetString(20));
 	}
 
 	nums.resize(nums.size() - 2);
@@ -120,7 +120,7 @@ void UI::FilePart()
 	file.open(path, std::ios::app);
 	if (!file.is_open())
 	{
-		throw BadFile("File can not be opened during writing data!");
+		throw BadFile(GetString(24).c_str());
 	}
 
 	file << "\n\n";
@@ -137,33 +137,33 @@ void UI::ManualPart()
 {
 	uint srcBase, destBase;
 	std::string srcNum;
-	cout << "Enter number: ";
+	cout << GetString(11) << ": ";
 	cin >> srcNum;
 
 	cls();
 
-	cout << "From base:\n";
+	cout << GetString(12) << ":\n";
 	srcBase = SelectNumeric();
 
 	cls();
 
-	cout << "To base:\n";
+	cout << GetString(13) << ":\n";
 	destBase = SelectNumeric();
 
 	Calc obl(srcBase, destBase, srcNum);
 
-    cls();
+	cls();
 
-    cout << "Source: " << srcNum << " (" << srcBase << ")\n\n";
-    cout << "Result: " << obl.Result() << " (" << destBase << ")\n\n";
+	cout << GetString(14) << ": " << srcNum << " (" << srcBase << ")\n\n";
+	cout << GetString(15) << ": " << obl.Result() << " (" << destBase << ")\n\n";
 	Wait();
 }
 
 void UI::About() noexcept
 {
-    cls();
-    cout << "Created by Intelek\n";
-    cout << "README file available on GitHub page" << endl;
+	cls();
+	cout << GetString(16) << ": Intelek\n";
+	cout << GetString(17) << endl;
 	Wait();
 }
 

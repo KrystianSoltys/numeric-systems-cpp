@@ -42,15 +42,16 @@ int main()
             }
             case 0:
             {
-                cls();
+                ui.cls();
 				log.AddToLog(DEFAULT_GOODBYE_MESS);
-                std::cout << "See you again!\n";
+                std::cout << ui.GetString(18) << "\n";
+                ui.Wait();
                 std::exit(EXIT_SUCCESS);
             }
 			default:
 			{
 				log.AddToLog("Provided incorrect module number");
-				msg = "Incorrect module number.";
+				msg = ui.GetString(19);
 			}
             }
         }
