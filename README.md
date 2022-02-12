@@ -14,7 +14,8 @@ Contact me if you want to help my progressing in programming :d  xks777x@gmail.c
   <li> Full application translation EN/PL </li>
   <li> Event logging system in log.txt file </li>
 </ul>
-### Using application (v2.0) </br>
+
+### Using application (v2.0)
 1. Choose 'Manual' / 'File' mode </br>
 2. Follow the instructions </br>
 3. Remember to provide:</br>
