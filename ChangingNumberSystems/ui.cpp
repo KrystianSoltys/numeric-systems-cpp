@@ -167,7 +167,8 @@ void UI::OptionsMenu()
 		cls();
 		cout << GetString(25) << ":\n\n";
 		cout << "[1] " << GetString(26) << "\n";
-		cout << "\n[0] " << GetString(27) << "\n";
+		cout << "\n[0] " << GetString(27) << "\n\n";
+		cout << GetString(29) << ": ";
 		cin >> choice;
 
 		switch (choice)

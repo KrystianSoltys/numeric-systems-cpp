@@ -14,7 +14,7 @@ class UI;
 
 inline bool IntsOnlyInStr(const std::string&);
 
-static std::string VERSION = "v2.0";
+static std::string VERSION = "v3.0";
 
 class UI
 {
