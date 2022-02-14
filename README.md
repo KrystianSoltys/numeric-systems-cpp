@@ -2,7 +2,7 @@
 
 ### Converter of numeric systems
 
-It's my second small project on GitHub using basic C++ OOP and CMake build system, hopefully it works on multiple platforms</br>
+It's my second small project on GitHub using basic C++ OOP and CMake build system, <s>hopefully it works on multiple platforms</s> for now works windows only (:</br>
 <i>I'm aware a lot of things could have been done in better ways</i></br></br>
 <b>Every from of feedback will be really appreciated</b></br></br>
 Contact me if you want to help my progressing in programming :d  xks777x@gmail.com</br>
