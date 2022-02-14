@@ -31,7 +31,7 @@ int main()
             case 3:
             {
 				log.AddToLog("Entered Options Module");
-				msg = "No options yet.";
+                ui.OptionsMenu();
                 break;
             }
             case 4:
