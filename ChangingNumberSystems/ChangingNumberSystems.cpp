@@ -3,7 +3,7 @@
 #include "options.hpp"
 #include <iostream>
 
-int main()
+auto main() -> int
 {
 	Log log(DEFAULT_LOG_FILENAME);
     Options opt(DEFAULT_OPT_FILENAME, DEFAULT_TR_FILENAME);
