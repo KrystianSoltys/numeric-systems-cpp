@@ -15,7 +15,7 @@ inline void UI::Wait() noexcept
 	cin.get();
 }
 
-#elif unix
+#else
 inline void UI::cls() noexcept
 {
 	system("clear");
@@ -23,7 +23,7 @@ inline void UI::cls() noexcept
 }
 inline void UI::Wait(const std::string& text) noexcept
 {
-	cout << GetString(1) << endl;
+	cout << "\n" << GetString(1) << endl;
 	cin.ignore();
 	cin.get();
 }

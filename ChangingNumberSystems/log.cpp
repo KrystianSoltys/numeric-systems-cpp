@@ -56,7 +56,7 @@ std::string Log::getDate() const
 
 	time_t t = std::chrono::system_clock::to_time_t(std::chrono::system_clock::now());
 	tm l;
-	localtime_s(&l, &t);
+	::localtime_s(&l, &t);
 
 	if (l.tm_mday < 10) day = "0";
 	day += to_string(l.tm_mday);

@@ -3,6 +3,7 @@
 
 #include <string>
 #include <cmath>
+#include <algorithm>
 
 /*
 Example of source.txt file to calc:
