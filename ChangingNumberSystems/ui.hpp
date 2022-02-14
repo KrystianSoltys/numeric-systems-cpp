@@ -30,6 +30,7 @@ public:
 	uint SelectNumeric();		        //throws out_of_range
 	void FilePart();			        //throws multiple exc
 	void ManualPart();			        //throws multiple exc
+	void OptionsMenu();
 	void About() noexcept;
 	
 	const std::string& GetString(uint x) const noexcept;

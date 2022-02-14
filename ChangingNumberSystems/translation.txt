@@ -24,3 +24,9 @@ Provided module number does not exists!;Podany modul nie istnieje!
 File can not be opened!;Nie mozna otworzyc pliku!
 To few lines in file!;Plik jest zbyt krotki!
 File can not be opened during writing data!;Plik nie moze zostac otwarty do zapisu danych!
+Select option;Wybierz ustawienie
+Language;Jezyk
+Exit;Wyjscie
+Choose application language;Wybierz jezyk aplikacji
+Choice;Twoj wybor
+Incorrect language provided, try again;Wybrano nieprawidlowy jezyk, sprobuj ponownie

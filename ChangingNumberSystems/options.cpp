@@ -5,6 +5,17 @@ bool Options::parseFile()
 	std::ifstream file;
 	file.open(filename, std::ios_base::in);
 
+	if (!file)
+	{
+		std::ofstream fileCreate;
+		fileCreate.open(DEFAULT_OPT_FILENAME, std::ios_base::out);
+
+		fileCreate << DEFAULT_OPTIONS_CONTENT;
+
+		fileCreate.close();
+	}
+
+	if (!file) file.open(filename, std::ios_base::in);
 	if (!file) return false;
 
 	std::string option{};
@@ -52,6 +63,46 @@ const std::string& Options::GetTranslation(uint line) const
 	return translationObj.GetTranslation(line, languageInt);
 }
 
+void Options::SetLanguageInt(int x) noexcept
+{
+	languageInt = x;
+
+
+	std::fstream file;
+	std::vector<std::string> fileCopy;
+
+	std::string option{};
+	std::string value{};
+	std::string line{};
+
+	file.open(filename, std::ios_base::in);
+
+	while (std::getline(file, line))
+	{
+		if (line[0] == '#') continue; // # is commenting
+
+		std::istringstream is(line);
+		std::getline(is, option, ':');
+
+		if (option == "LANG")
+			value = GetLangVersions().at(languageInt);
+		else
+			std::getline(is, value);
+
+		fileCopy.push_back(option + ":" + value);
+
+	}
+
+	file.close();
+	file.open(filename, std::ios_base::trunc | std::ios_base::out);
+
+	for (const auto& i : fileCopy)
+	{
+		file << i << std::endl;
+	}
+	file.close();
+}
+
 Translation::Translation(const std::string& fn) : filename(fn)
 {
 	parseFile();
@@ -74,8 +125,18 @@ bool Translation::parseFile()
 	std::ifstream file;
 	file.open(filename, std::ios_base::in);
 	
-	//if (!file) return false;
+	if (!file)
+	{
+		std::ofstream fileCreate;
+		fileCreate.open(filename,std::ios_base::out);
+
+		fileCreate << DEFAULT_TRANSLATION_CONTENT;
+
+		fileCreate.close();
+	}
 	
+	if (!file) file.open(filename, std::ios_base::in);
+	if (!file) return false;
 
 	std::string line{};
 	std::string val{};

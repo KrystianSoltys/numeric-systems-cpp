@@ -159,6 +159,48 @@ void UI::ManualPart()
 	Wait();
 }
 
+void UI::OptionsMenu()
+{
+	uint choice = 1;
+	while (choice == 1)
+	{
+		cls();
+		cout << GetString(25) << ":\n\n";
+		cout << "[1] " << GetString(26) << "\n";
+		cout << "\n[0] " << GetString(27) << "\n";
+		cin >> choice;
+
+		switch (choice)
+		{
+		case 1:
+			cls();
+			uint selectedLang;
+			cout << GetString(28) << ": \n\n";
+			for (uint i = 0; i < optObj->GetLangVersions().size(); i++)
+			{
+				cout << "[" << i + 1 << "] " << optObj->GetLangVersions().at(i) << endl;
+			}
+			cout << "\n" << GetString(29) << ": ";
+			cin >> selectedLang;
+			if (selectedLang > optObj->GetLangVersions().size() || !selectedLang)
+			{
+				cls();
+				cout << GetString(30) << "\n\n";
+				Wait();
+				break;
+			}
+			else
+			{
+				optObj->SetLanguageInt(selectedLang-1);
+				break;
+			}
+		default:
+			break;
+		}
+	}
+	
+} 
+
 void UI::About() noexcept
 {
 	cls();
