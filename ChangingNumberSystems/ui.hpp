@@ -9,6 +9,7 @@
 #include <fstream>
 #include <algorithm>
 #include <functional>
+#include <memory>
 
 class UI;
 
@@ -44,14 +45,14 @@ class BadFile : public std::exception
 {
 public:
 	BadFile(const char* message = "Problem with file occured!") :
-        msg_(message) {}
+		msg_(message) {}
 	virtual const char* what() const noexcept
 	{
 		return msg_.c_str();
 	}
 
 protected:
-    std::string msg_;
+	std::string msg_;
 };
 
 class BadDataInFile : public std::exception
@@ -65,7 +66,7 @@ public:
 	}
 
 protected:
-    std::string msg_;
+	std::string msg_;
 };
 #endif // !UI_HPP
 
